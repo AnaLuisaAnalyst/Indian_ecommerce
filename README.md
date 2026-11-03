@@ -70,7 +70,7 @@ v_top_produtos: Identifica los productos líderes generadores de ingresos y unid
 v_analisis_demografico: Agrupa el comportamiento de compra por ciudades y rangos de edad. 
 
 
-![Segmentacion](Capturas/20261103_segmentacion_demografica.png)
+![Segmentacion](Capturas/20261103_view_segmentacion_demografica.png)
 
 
 v_kpis_financieros: Consolida métricas macro del negocio (Ticket promedio, volumen de pedidos, ingresos brutos y costos logísticos). 

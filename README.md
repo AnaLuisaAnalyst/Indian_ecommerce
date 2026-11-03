@@ -14,11 +14,14 @@ Este proyecto desarrolla un flujo completo de base de datos en PostgreSQL para a
 
 El diseño de la base de datos se compone de tres entidades principales con integridad referencial estricta: 
 
-cliente: Datos demográficos y de contacto de los usuarios (40,000 registros). 
+* cliente: Datos demográficos y de contacto de los usuarios (40,000 registros). 
 
-producto: Catálogo de productos, stocks, precios y puntuaciones (2,000 registros). 
+* producto: Catálogo de productos, stocks, precios y puntuaciones (2,000 registros). 
 
-venta: Transacciones históricas detalladas con métricas financieras (250,000 registros). 
+* venta: Transacciones históricas detalladas con métricas financieras (250,000 registros). 
+
+
+![Total de Lineas](Capturas/20261103_total_lineas.png)
 
 
 --------------------------------------------------------------------------------------------------
@@ -30,7 +33,15 @@ Antes de realizar análisis, ejecuté scripts de diagnóstico para identificar v
 
 Se validó que no existieran inconsistencias en precios negativos, stocks nulos o IDs vacíos. 
 
+
+![Puntos Criticos](Capturas/20261103_ptos_criticos.png)
+
+
 Se detectaron múltiples registros de clientes con el mismo correo electrónico pero diferentes identificadores (id_cliente). 
+
+
+![Duplicados](Capturas/20261103_duplicados.png)
+
 
 2. Limpieza y Unificación de Registros (Deduplicación)
 
@@ -42,11 +53,9 @@ Actualización: Redirigir el histórico de compras en la tabla venta hacia el nu
 
 Eliminación: Borrar los perfiles duplicados excedentes de la tabla cliente. 
 
-sql
 
--- Ejemplo del proceso de unificación de clientes duplicados WITH cliente_unico AS ( SELECT email, MIN(id_cliente) AS id_cliente_oficial FROM cliente GROUP BY email ) UPDATE venta v SET id_cliente = cu.id_cliente_oficial FROM cliente c JOIN cliente_unico cu ON c.email = cu.email WHERE v.id_cliente = c.id_cliente AND v.id_cliente <> cu.id_cliente_oficial; 
+![Deduplicados](Capturas/20261103_deduplicado.png)
 
-Usa el código con precaución.
 
 3. Vistas Analíticas para Toma de Decisiones
 
@@ -54,11 +63,27 @@ Creé vistas (VIEW) específicas para responder a necesidades clave del negocio 
 
 v_top_produtos: Identifica los productos líderes generadores de ingresos y unidades más vendidas. 
 
+
+![Productos](Capturas/20261103_view_producto.png)
+
+
 v_analisis_demografico: Agrupa el comportamiento de compra por ciudades y rangos de edad. 
+
+
+![Segmentacion](Capturas/20261103_view_segmentacion_demografica.png)
+
 
 v_kpis_financieros: Consolida métricas macro del negocio (Ticket promedio, volumen de pedidos, ingresos brutos y costos logísticos). 
 
+
+![KPI's](Capturas/20261103_index_view_kpi.png)
+
+
 v_indian_ecommerce_powerbi: Vista única desnormalizada que une el histórico transaccional aplicando tratamientos de nulos (COALESCE) lista para su explotación en tableros interactivos. 
+
+
+![Tabla](Capturas/20261103_view_unificacion_de_tabla.png)
+
 
 4. Optimización de Consultas (Performance)
 

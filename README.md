@@ -42,11 +42,21 @@ Actualización: Redirigir el histórico de compras en la tabla venta hacia el nu
 
 Eliminación: Borrar los perfiles duplicados excedentes de la tabla cliente. 
 
-sql
+EJEMPLO:
 
--- Ejemplo del proceso de unificación de clientes duplicados WITH cliente_unico AS ( SELECT email, MIN(id_cliente) AS id_cliente_oficial FROM cliente GROUP BY email ) UPDATE venta v SET id_cliente = cu.id_cliente_oficial FROM cliente c JOIN cliente_unico cu ON c.email = cu.email WHERE v.id_cliente = c.id_cliente AND v.id_cliente <> cu.id_cliente_oficial; 
+WITH cliente_unico AS(
+	SELECT email,
+		MIN(id_cliente) AS id_cliente_oficial --selecciona el ID mas antiguo como oficial
+	FROM cliente
+	GROUP BY email
+)
 
-Usa el código con precaución.
+UPDATE venta v
+SET id_cliente = cu.id_cliente_oficial
+FROM cliente c
+JOIN cliente_unico cu ON c.email = cu.email
+WHERE v.id_cliente = c.id_cliente AND v.id_cliente <> cu.id_cliente_oficial;
+
 
 3. Vistas Analíticas para Toma de Decisiones
 

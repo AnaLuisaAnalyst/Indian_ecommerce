@@ -2,10 +2,14 @@
 Flujo de Ingenieria de Análisis de Datos en PostgreSQL para un eComemerce (250k+ registros). Con auditoria de calidad, limpieza con CTEs, optimización con índices y vistas analiticas para PowerBI
 
 
+
+--------------------------------------------------------------------------------------------------
 🛒 Análisis de Datos e Ingeniería SQL: Indian E-Commerce
 
 Este proyecto desarrolla un flujo completo de base de datos en PostgreSQL para auditar, limpiar, optimizar y analizar el rendimiento de una plataforma de comercio electrónico con más de 250,000 registros de ventas. El objetivo principal es transformar datos brutos en una estructura optimizada y lista para conectar a herramientas de BI (como Power BI). 
 
+
+--------------------------------------------------------------------------------------------------
 📊 Arquitectura y Modelado de Datos
 
 El diseño de la base de datos se compone de tres entidades principales con integridad referencial estricta: 
@@ -16,6 +20,8 @@ producto: Catálogo de productos, stocks, precios y puntuaciones (2,000 registro
 
 venta: Transacciones históricas detalladas con métricas financieras (250,000 registros). 
 
+
+--------------------------------------------------------------------------------------------------
 🔍 Etapas del Proyecto
 
 1. Auditoría de Calidad de los Datos (Data Quality)
@@ -62,6 +68,7 @@ Dado el volumen de la tabla de ventas (250K filas), implementé índices estrat�
 
 Índice compuesto e inclusivo para acelerar el análisis demográfico y financiero (grupo_edad_cliente, metodo_pago e INCLUDE(valor_total)). 
 
+--------------------------------------------------------------------------------------------------
 🛠️ Tecnologías Utilizadas
 
 Motor de Base de Datos: PostgreSQL 18 

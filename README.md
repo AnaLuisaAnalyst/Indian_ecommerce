@@ -82,7 +82,7 @@ v_kpis_financieros: Consolida métricas macro del negocio (Ticket promedio, volu
 v_indian_ecommerce_powerbi: Vista única desnormalizada que une el histórico transaccional aplicando tratamientos de nulos (COALESCE) lista para su explotación en tableros interactivos. 
 
 
-![Tabla](Capturas/20261103_view_unificacion_de_tabla.png)
+![Tabla](Capturas/20261103_view_unificacion_de_tablas.png)
 
 
 4. Optimización de Consultas (Performance)

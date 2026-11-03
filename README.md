@@ -14,13 +14,13 @@ Este proyecto desarrolla un flujo completo de base de datos en PostgreSQL para a
 
 El diseño de la base de datos se compone de tres entidades principales con integridad referencial estricta: 
 
-cliente: Datos demográficos y de contacto de los usuarios (40,000 registros). 
+* cliente: Datos demográficos y de contacto de los usuarios (40,000 registros). 
 
-producto: Catálogo de productos, stocks, precios y puntuaciones (2,000 registros). 
+* producto: Catálogo de productos, stocks, precios y puntuaciones (2,000 registros). 
 
-venta: Transacciones históricas detalladas con métricas financieras (250,000 registros). 
+* venta: Transacciones históricas detalladas con métricas financieras (250,000 registros). 
 
-20261103_total_lineas.png
+![Total de Lineas](Capturas/20261103_total_lineas.png)
 
 --------------------------------------------------------------------------------------------------
 🔍 Etapas del Proyecto

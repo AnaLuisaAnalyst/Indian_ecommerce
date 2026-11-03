@@ -20,6 +20,7 @@ producto: Catálogo de productos, stocks, precios y puntuaciones (2,000 registro
 
 venta: Transacciones históricas detalladas con métricas financieras (250,000 registros). 
 
+20261103_total_lineas.png
 
 --------------------------------------------------------------------------------------------------
 🔍 Etapas del Proyecto
